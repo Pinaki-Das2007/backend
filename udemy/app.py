@@ -15,4 +15,4 @@ def index():
     return "This is a index page to show case the backend turn."
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run()
