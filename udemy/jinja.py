@@ -29,9 +29,38 @@ def submit():
     return render_template("Form.html")
 
 #variable rule
-@app.route("/success/<score>")
+@app.route("/success/<int:score>")
 def success(score):
-    return "The marks you got is "+score
+    res = ""
+    if score >=50:
+        res="Passed"
+    else:
+        res="Failed"
+
+    return render_template("result.html",results=res)
+
+
+@app.route("/successres/<int:score>")
+def successres(score):
+    res = ""
+    if score >= 50:
+        res = "Passed"
+    else:
+        res = "Failed"
+
+    exp = {'score': score, 'res': res}
+
+    return render_template("result1.html", results=exp)
+
+
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     app.run(debug = True)
